@@ -1,0 +1,10 @@
+siti  user
+my password for superuser Siti*
+to run db mysql -u dana -p
+DB_PASSWORD=9911Siti*
+
+SELECT * FROM students_studentregistration;
+
+CREATE USER 'tradeb'@'localhost' IDENTIFIED BY 'StrongPassword!';
+GRANT ALL PRIVILEGES ON hertradebridge_db.* TO 'appuser'@'localhost';
+FLUSH PRIVILEGES;

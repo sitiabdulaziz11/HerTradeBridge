@@ -10,3 +10,15 @@ class UserProfileForm(forms.ModelForm):
         widgets = {
             'password': forms.PasswordInput(),
         }
+
+from .models import Address
+
+class AddressForm(forms.ModelForm):
+    class Meta:
+        model = Address
+        fields = ['user', 'country', 'city', 'village', 'village_description']
+
+class ReviewForm(forms.ModelForm):
+    class Meta:
+        model = Review
+        fields = ['user', 'product', 'rating', 'comment']

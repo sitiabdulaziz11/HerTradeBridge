@@ -31,3 +31,37 @@ sudo apt install python3.12-venv -y
 pip freeze > requirements.txt  To collect installed tools
 
 pip install -r requirements.txt To install tools on it
+
+to install and use mysql:
+1 sudo apt install mysql-server
+2 sudo service mysql start
+3 sudo service mysql status
+4 mysql -u root -p
+in deployment:
+5 sudo mysql_secure_installation
+This helps you:
+
+
+And improve security.
+Follow the prompts:
+
+Set root password
+
+Remove anonymous users
+
+Disallow remote root login
+
+Remove test database
+
+Reload privileges
+
+Then, create a separate MySQL user for your app instead of using root:
+
+CREATE USER 'appuser'@'localhost' IDENTIFIED BY 'StrongPassword!';
+GRANT ALL PRIVILEGES ON hertradebridge_db.* TO 'appuser'@'localhost';
+FLUSH PRIVILEGES;
+
+
+That’s the production best practice.
+
+
