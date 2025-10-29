@@ -1,0 +1,33 @@
+
+To start wsl on vscode:
+
+1 wsl --install -d Ubuntu / wsl --install only
+2 In VS Code → Press Ctrl + Shift + P → Type:
+WSL: Connect to WSL
+
+To create venv and use it:
+1 python3 -m venv venv / python3 create venv venv
+2 source venv/bin/activate
+3 python3 -m pip install django
+4 Verify installation:
+python3 -m django --version
+
+ To create django project:
+ 1 django-admin startproject <name of project>
+ then To start app:
+ 1 python3 manage.py startapp <name of app>
+
+
+sudo apt update
+sudo apt install python3-pip -y
+ if we get "No module named pip"
+
+
+if recreate your virtual environment or venv faill
+sudo apt update
+sudo apt install python3.12-venv -y
+
+
+pip freeze > requirements.txt  To collect installed tools
+
+pip install -r requirements.txt To install tools on it
