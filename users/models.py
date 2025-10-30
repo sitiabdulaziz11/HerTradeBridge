@@ -1,6 +1,6 @@
 
 from django.db import models
-from product.models import Product, Order 
+# from products.models import Product, Order
 
 # Create your models here.
 
@@ -42,22 +42,24 @@ class Review(models.Model):
     """ Model handling user reviews.
     """
     user = models.ForeignKey(UserProfile, on_delete=models.CASCADE, related_name='reviews')
-    product = models.ForeignKey(Product, on_delete=models.CASCADE, related_name='reviews')
-    rating = models.PositiveIntegerField() comment = models.TextField(blank=True, null=True)
+    product = models.ForeignKey('products.Product', on_delete=models.CASCADE, related_name='reviews')
+
+    rating = models.PositiveIntegerField()
+    comment = models.TextField(blank=True, null=True)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
     reviewed_date = models.DateTimeField(auto_now_add=True)
     
     def __str__(self):
-        return f"Review by {self.user.first_name} {self.user.last_name} - for {self.product.name} - Rating: {self.rating}" 
-
-
- class PurchaseHistory(models.Model):
+        return f"Review by {self.user.first_name} {self.user.last_name} - for {self.product.name} - Rating: {self.rating}"
+        
+        
+class PurchaseHistory(models.Model):
     """ Model to handle user history for seller trust and buyer discount.
     """
     buyer = models.ForeignKey(UserProfile, on_delete=models.CASCADE,related_name='purchase_history') 
-    product = models.ForeignKey(Product, on_delete=models.SET_NULL, null=True)
-    order = models.ForeignKey(Order, on_delete=models.SET_NULL, null=True)
+    product = models.ForeignKey('products.Product', on_delete=models.SET_NULL, null=True)
+    order = models.ForeignKey('products.Order', on_delete=models.SET_NULL, null=True)
     purchase_count = models.PositiveIntegerField(default=1) 
     discount_received = models.DecimalField(max_digits=6, decimal_places=2, default=0.00) 
     last_purchase_date = models.DateTimeField(auto_now=True)

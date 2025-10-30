@@ -1,8 +1,8 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect, get_object_or_404
+
 
 # Create your views here.
 
-from django.shortcuts import render, redirect, get_object_or_404
 from .models import Product
 from .forms import ProductForm
 
@@ -77,4 +77,6 @@ def delete_order(request, pk):
         order.delete()
         return redirect('all_orders')
     return render(request, 'product/delete_order.html', {'order': order})
-    
+
+
+

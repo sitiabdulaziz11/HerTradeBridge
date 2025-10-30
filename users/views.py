@@ -1,14 +1,23 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 
 # Create your views here.
 
-from .models import UserProfile
+from .models import UserProfile, Review
 from .forms import UserProfileForm
+from products.models import Product
+
+def main_page(request):
+    """main page
+    """
+    products = Product.objects.all()[:6]  # show latest 6
+    return render(request, 'users/index.html', {
+        'products': products
+        })
 
 # List users
 def all_users(request):
     users = UserProfile.objects.all()
-    return render(request, 'user/all_users.html', {'users': users})
+    return render(request, 'users/all_users.html', {'users': users})
 
 # Add user (signup)
 def add_user(request):
@@ -19,7 +28,9 @@ def add_user(request):
             return redirect('all_users')
     else:
         form = UserProfileForm()
-    return render(request, 'user/add_user.html', {'form': form})
+    return render(request, 'users/add_user.html', {
+        'form': form
+        })
 
 # Edit user
 def edit_user(request, pk):
@@ -31,7 +42,10 @@ def edit_user(request, pk):
             return redirect('all_users')
     else:
         form = UserProfileForm(instance=user)
-    return render(request, 'user/edit_user.html', {'form': form, 'user': user})
+    return render(request, 'users/edit_user.html', {
+        'form': form,
+        'user': user
+        })
 
 # Delete user
 def delete_user(request, pk):
@@ -114,3 +128,6 @@ def delete_review(request, pk):
         return redirect('all_reviews')
     return render(request, 'user/delete_review.html', {'review': review})
 
+def all_purchase_history(request):
+    purchases = PurchaseHistory.objects.all()
+    return render(request, 'user/all_purchase_history.html', {'purchases': purchases})

@@ -1,5 +1,7 @@
 from django import forms
-from .models import UserProfile
+
+from .models import UserProfile, Address, Review
+
 
 class UserProfileForm(forms.ModelForm):
     """ Forms that handle user profile.
@@ -11,7 +13,6 @@ class UserProfileForm(forms.ModelForm):
             'password': forms.PasswordInput(),
         }
 
-from .models import Address
 
 class AddressForm(forms.ModelForm):
     class Meta:

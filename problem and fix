@@ -1,0 +1,9 @@
+1 ile "<frozen importlib._bootstrap>", line 488, in _call_with_frames_removed
+  File "<frozen importlib._bootstrap>", line 1387, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1360, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1324, in _find_and_load_unlocked
+ModuleNotFoundError: No module named 'product'
+    path('product/', include('product.urlsp')),so/n : b/c of i write instade of path('product/', include('products.urlsp')), i forgit s on prudoctsm in project urls.py file.
+ 
+ 2 i forgot [BASE_DIR / "templates" ], in setting.py file and i got 
+ te,plateNotExist issues

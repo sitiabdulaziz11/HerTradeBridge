@@ -5,6 +5,6 @@ DB_PASSWORD=9911Siti*
 
 SELECT * FROM students_studentregistration;
 
-CREATE USER 'tradeb'@'localhost' IDENTIFIED BY 'StrongPassword!';
-GRANT ALL PRIVILEGES ON hertradebridge_db.* TO 'appuser'@'localhost';
+CREATE USER 'tradeb'@'localhost' IDENTIFIED BY '9911ti*';
+GRANT ALL PRIVILEGES ON tradeb_db.* TO 'tradeb'@'localhost';
 FLUSH PRIVILEGES;

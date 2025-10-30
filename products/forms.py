@@ -1,4 +1,6 @@
-from .models import Order
+from django import forms
+
+from .models import Order, Product
 
 
 class ProductForm(forms.ModelForm):

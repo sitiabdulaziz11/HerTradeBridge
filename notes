@@ -1,3 +1,5 @@
+WARNING: This is a development server. Do not use it in a production setting. Use a production WSGI or ASGI server instead.
+For more information on production servers see: https://docs.djangoproject.com/en/5.2/howto/deployment/
 
 To start wsl on vscode:
 
@@ -36,9 +38,8 @@ to install and use mysql:
 1 sudo apt install mysql-server
 2 sudo service mysql start
 3 sudo service mysql status
-4 mysql -u root -p
 in deployment:
-5 sudo mysql_secure_installation
+4 sudo mysql_secure_installation
 This helps you:
 
 
@@ -61,7 +62,16 @@ CREATE USER 'appuser'@'localhost' IDENTIFIED BY 'StrongPassword!';
 GRANT ALL PRIVILEGES ON hertradebridge_db.* TO 'appuser'@'localhost';
 FLUSH PRIVILEGES;
 
-
 That’s the production best practice.
 
+5  mysql -u root -p
+
+6 then on terminal:
+    sudo apt update
+    sudo apt install python3-dev default-libmysqlclient-dev build-essential pkg-config
+    pip install mysqlclient
+
+install: python -m pip install Pillow
+then run: python3 manage.py makemigrations
+ then:    python3 manage.py migrate
 

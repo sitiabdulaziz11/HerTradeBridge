@@ -1,0 +1,74 @@
+{% extends 'base.html' %}
+
+{% block title %}HerTradeBridge | Home{% endblock %}
+
+{% block content %}
+<!-- 🌉 Hero Section -->
+<div class="text-center bg-light p-5 rounded-4 shadow-sm mb-5">
+  <h1 class="display-5 fw-bold text-primary">Welcome to HerTradeBridge</h1>
+  <p class="lead text-muted mt-3">
+    Connecting <strong>Buyers</strong> and <strong>Sellers</strong> across Ethiopia — 
+    your trusted digital marketplace.
+  </p>
+  <a href="" class="btn btn-outline-primary btn-lg mt-3">Start Selling</a> 
+</div>
+
+<!-- 🛍️ Featured Products -->
+<div class="container">
+  <h2 class="text-center mb-4">🌟 Featured Products</h2>
+
+  <div class="row row-cols-1 row-cols-md-3 g-4">
+    {% for product in products %}
+      <div class="col">
+        <div class="card h-100 shadow-sm border-0 rounded-4">
+          {% if product.image %}
+            <img src="{{ product.image.url }}" class="card-img-top rounded-top-4" alt="{{ product.name }}">
+          {% else %}
+            <img src="https://via.placeholder.com/400x250?text=No+Image" class="card-img-top rounded-top-4" alt="No image">
+          {% endif %}
+          <div class="card-body">
+            <h5 class="card-title fw-bold text-primary">{{ product.name }}</h5>
+            <p class="card-text text-muted">{{ product.description|truncatewords:15 }}</p>
+            <p class="fw-bold">💰 {{ product.price }} ETB</p>
+          </div>
+          <div class="card-footer bg-white border-0">
+            <a href="#" class="btn btn-outline-primary w-100">View Details</a>
+          </div>
+        </div>
+      </div>
+    {% empty %}
+      <p class="text-center text-muted">No products available yet. Be the first to add one!</p>
+    {% endfor %}
+  </div>
+</div>
+
+<!-- 💡 About Section -->
+<section class="mt-5 p-5 bg-primary text-white rounded-4 shadow-sm text-center">
+  <h2>Why Choose HerTradeBridge?</h2>
+  <p class="lead mt-3">
+    We empower local sellers and simplify shopping for everyone.
+    Our platform ensures trust, transparency, and convenience in every trade.
+  </p>
+  <div class="row mt-4">
+    <div class="col-md-4">
+      <h5>🔒 Trusted Platform</h5>
+      <p>Every buyer and seller is verified to ensure a safe marketplace.</p>
+    </div>
+    <div class="col-md-4">
+      <h5>⚡ Fast & Simple</h5>
+      <p>Easy product uploads, quick checkout, and responsive design.</p>
+    </div>
+    <div class="col-md-4">
+      <h5>📈 Grow Your Business</h5>
+      <p>Join a community that supports small and local entrepreneurs.</p>
+    </div>
+  </div>
+</section>
+
+<!-- 📞 Contact Section -->
+<section class="mt-5 text-center">
+  <h3>Have Questions?</h3>
+  <p class="text-muted">Contact our team at <strong>support@hertradebridge.com</strong></p>
+  <a href="#" class="btn btn-outline-primary">Get in Touch</a>
+</section>
+{% endblock %}
