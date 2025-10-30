@@ -36,21 +36,25 @@
 
 
     <!-- 🧭 Navbar -->
-    {% comment %} <nav class="navbar navbar-expand-lg navbar-dark">
+ <nav class="navbar navbar-expand-lg navbar-dark">
         <div class="container-fluid">
-            <a class="navbar-brand" href="/">My Marketplace</a>
+            <a class="navbar-brand" href="/">HerTradeBridge</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav">
+                    <li class="nav-item"><a class="nav-link" href="{% url 'all_users' %}">Home</a></li>
                     <li class="nav-item"><a class="nav-link" href="{% url 'all_users' %}">Users</a></li>
                     <li class="nav-item"><a class="nav-link" href="{% url 'all_addresses' %}">Addresses</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{% url 'all_addresses' %}">Products</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{% url 'all_reviews' %}">Orders</a></li>
                     <li class="nav-item"><a class="nav-link" href="{% url 'all_reviews' %}">Reviews</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{% url 'all_reviews' %}">Contact</a></li>
                 </ul>
             </div>
         </div>
-    </nav> {% endcomment %}
+    </nav> 
 
     <!-- 📦 Main content -->
     <div class="container">
