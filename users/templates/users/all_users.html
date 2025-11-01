@@ -1,7 +1,42 @@
+{% load static %}
 
-<h1>All Users</h1>
-<ul>
+{% block css_file %}
+    <link rel="stylesheet" href="{% static "users/all_users.css" %}">
+{% endblock %}
+
+
+<h1>Registered TradeBridge Users:</h1>
+{% comment %} <ul>
     {% for user in users %}
         <li>{{ user.first_name }} {{ user.last_name }} - {{ user.phone_number }} - {{ user.role }}</li>
     {% endfor %}
-</ul>
+</ul> {% endcomment %}
+
+<table border="1" cellspacing="0" cellpadding="8">
+    <thead>
+        <tr>
+            <th>No</th>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>Phone Number</th>
+            <th>Email</th>
+            <th>Role</th>
+            <th>Created At</th>
+            <th>Updated_at</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for user in users %}
+        <tr>
+            <td>{{ forloop.counter }}</td>
+            <td>{{ user.first_name }}</td>
+            <td>{{ user.last_name }}</td>
+            <td>{{ user.phone_number }}</td>
+            <td>{{ user.email }}</td>
+            <td>{{ user.get_role_display }}</td>
+            <td>{{ user.created_at|date:"Y-m-d H:i" }}</td>
+            <td>{{ user.updated_at|date:"Y-m-d H:i" }}</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>

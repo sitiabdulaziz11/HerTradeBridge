@@ -57,6 +57,25 @@ nav a.nav-link {
     margin-top: 2rem;
 }
 
+.text1 {
+    color: #0e0457 !important; /* add !important to override Bootstrap */
+}
+
+.bg-custom {
+    background-color: #0e0457 !important;
+}
+
+.btn-custom {
+    color: #0e0457;           /* text color */
+    border-color: #0e0457;    /* border color */
+}
+
+.btn-custom:hover {
+    background-color: #0e0457; /* fill on hover */
+    color: white;              /* text color on hover */
+    border-color: #0e0457;
+}
+
 footer {
     margin-top: 3rem;
     padding: 1rem;

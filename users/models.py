@@ -9,6 +9,7 @@ class UserProfile(models.Model):
     """Model representing a user profile. 
     """
     ROLE_CHOICES = [ ('buyer', 'Buyer'), ('seller', 'Seller'), ]
+    
     first_name = models.CharField(max_length=70)
     last_name = models.CharField(max_length=70)
     phone_number = models.CharField(max_length=30, unique=True)
