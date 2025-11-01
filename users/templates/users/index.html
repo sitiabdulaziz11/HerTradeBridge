@@ -4,13 +4,16 @@
 
 {% block content %}
 <!-- 🌉 Hero Section -->
+
 <div class="text-center bg-light p-5 rounded-4 shadow-sm mb-5">
-  <h1 class="display-5 fw-bold text-primary">Welcome to HerTradeBridge</h1>
+  <h1 class="display-5 fw-bold text-primary">Welcome to TradeBridge E-Commerce Site!</h1>
+
   <p class="lead text-muted mt-3">
     Connecting <strong>Buyers</strong> and <strong>Sellers</strong> across Ethiopia — 
-    your trusted digital marketplace.
+    your trusted <strong>digital marketplace.</strong>
   </p>
-  <a href="" class="btn btn-outline-primary btn-lg mt-3">Start Selling</a> 
+
+   <a href="" class="btn btn-outline-primary btn-lg mt-3"> Get Start</a> 
 </div>
 
 <!-- 🛍️ Featured Products -->
@@ -21,16 +24,20 @@
     {% for product in products %}
       <div class="col">
         <div class="card h-100 shadow-sm border-0 rounded-4">
+
           {% if product.image %}
             <img src="{{ product.image.url }}" class="card-img-top rounded-top-4" alt="{{ product.name }}">
+
           {% else %}
             <img src="https://via.placeholder.com/400x250?text=No+Image" class="card-img-top rounded-top-4" alt="No image">
           {% endif %}
+
           <div class="card-body">
             <h5 class="card-title fw-bold text-primary">{{ product.name }}</h5>
             <p class="card-text text-muted">{{ product.description|truncatewords:15 }}</p>
             <p class="fw-bold">💰 {{ product.price }} ETB</p>
           </div>
+
           <div class="card-footer bg-white border-0">
             <a href="#" class="btn btn-outline-primary w-100">View Details</a>
           </div>
@@ -49,15 +56,18 @@
     We empower local sellers and simplify shopping for everyone.
     Our platform ensures trust, transparency, and convenience in every trade.
   </p>
+
   <div class="row mt-4">
     <div class="col-md-4">
       <h5>🔒 Trusted Platform</h5>
       <p>Every buyer and seller is verified to ensure a safe marketplace.</p>
     </div>
+
     <div class="col-md-4">
       <h5>⚡ Fast & Simple</h5>
       <p>Easy product uploads, quick checkout, and responsive design.</p>
     </div>
+    
     <div class="col-md-4">
       <h5>📈 Grow Your Business</h5>
       <p>Join a community that supports small and local entrepreneurs.</p>
