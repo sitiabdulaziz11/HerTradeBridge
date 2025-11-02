@@ -8,6 +8,7 @@ urlpatterns = [
     path('all_users/', views.all_users, name='all_ur'),
     path('add_user/', views.add_user, name='add_ur'),
     path('addresses/', views.all_addresses, name='all_addresses'),
+    path('add_address/', views.add_address, name='add_adrs'),
     path('reviews/', views.all_reviews, name='all_reviews'),
     path('purchase-history/', views.all_purchase_history, name='all_purchase_history'),
 ]

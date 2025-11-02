@@ -2,8 +2,8 @@ from django.shortcuts import render, redirect
 
 # Create your views here.
 
-from .models import UserProfile, Review
-from .forms import UserProfileForm
+from .models import Address, UserProfile, Review
+from .forms import UserProfileForm, AddressForm
 from products.models import Product
 
 def main_page(request):
@@ -16,16 +16,20 @@ def main_page(request):
 
 # List users
 def all_users(request):
+    """To display all subscriber.
+    """
     users = UserProfile.objects.all()
     return render(request, 'users/all_users.html', {'users': users})
 
 # Add user (signup)
 def add_user(request):
+    """To register a new users/sign up.
+    """
     if request.method == 'POST':
         form = UserProfileForm(request.POST)
         if form.is_valid():
             form.save()
-            return redirect('all_users')
+            return redirect("add_adrs")
     else:
         form = UserProfileForm()
     return render(request, 'users/add_user.html', {
@@ -62,14 +66,18 @@ def all_addresses(request):
 
 # Add address
 def add_address(request):
+    """To register a new address
+    """
     if request.method == 'POST':
         form = AddressForm(request.POST)
         if form.is_valid():
             form.save()
-            return redirect('all_addresses')
+            return redirect('all_pro')
     else:
         form = AddressForm()
-    return render(request, 'user/add_address.html', {'form': form})
+    return render(request, 'users/add_address.html', {
+        'form': form,
+        })
 
 # Edit address
 def edit_address(request, pk):
