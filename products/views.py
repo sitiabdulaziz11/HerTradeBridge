@@ -8,19 +8,27 @@ from .forms import ProductForm
 
 # List products
 def all_products(request):
+    """ To List all products.
+    """
     products = Product.objects.all()
-    return render(request, 'product/all_products.html', {'products': products})
+    return render(request, 'products/all_products.html', {
+        'products': products,
+        })
 
 # Add product
 def add_product(request):
+    """To add new products.
+    """
     if request.method == 'POST':
         form = ProductForm(request.POST, request.FILES)
         if form.is_valid():
             form.save()
-            return redirect('all_products')
+            return redirect('all_pro')
     else:
         form = ProductForm()
-    return render(request, 'product/add_product.html', {'form': form})
+    return render(request, 'products/add_product.html', {
+        'form': form,
+        })
 
 # Edit product
 def edit_product(request, pk):

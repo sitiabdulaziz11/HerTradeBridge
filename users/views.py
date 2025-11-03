@@ -36,6 +36,21 @@ def add_user(request):
         'form': form
         })
 
+# Add address
+def add_address(request):
+    """To register a new address
+    """
+    if request.method == 'POST':
+        form = AddressForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('all_pro')
+    else:
+        form = AddressForm()
+    return render(request, 'users/add_address.html', {
+        'form': form,
+        })
+
 # Edit user
 def edit_user(request, pk):
     user = get_object_or_404(UserProfile, pk=pk)
@@ -64,20 +79,7 @@ def all_addresses(request):
     addresses = Address.objects.all()
     return render(request, 'user/all_addresses.html', {'addresses': addresses})
 
-# Add address
-def add_address(request):
-    """To register a new address
-    """
-    if request.method == 'POST':
-        form = AddressForm(request.POST)
-        if form.is_valid():
-            form.save()
-            return redirect('all_pro')
-    else:
-        form = AddressForm()
-    return render(request, 'users/add_address.html', {
-        'form': form,
-        })
+
 
 # Edit address
 def edit_address(request, pk):

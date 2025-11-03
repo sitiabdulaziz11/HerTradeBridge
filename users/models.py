@@ -36,7 +36,7 @@ class Address(models.Model):
     updated_at = models.DateTimeField(auto_now=True)
     
     def __str__(self):
-        return f"{self.country} {self.street}, {self.city}, {self.village}, {self.city}"
+        return f"{self.country}, {self.city}, {self.village}, {self.location_type}"
         
 
 class Review(models.Model): 

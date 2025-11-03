@@ -11,9 +11,9 @@ class Product(models.Model):
     name = models.CharField(max_length=200)
     description = models.TextField() 
     price = models.DecimalField(max_digits=10, decimal_places=2)
-    image = models.ImageField(upload_to='products/images/') 
+    image = models.ImageField(upload_to='products/') 
     video = models.FileField(upload_to='products/videos/', blank=True, null=True)
-    weight = models.CharField(max_length=50, blank=True)
+    weight = models.CharField(max_length=50, blank=True, null=True)
     status = models.CharField(max_length=10, choices=STATUS_CHOICES, default='available')
     
     seller = models.ForeignKey(UserProfile, on_delete=models.CASCADE, related_name='products')
@@ -21,7 +21,8 @@ class Product(models.Model):
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
     
-    def __str__(self): return self.name
+    def __str__(self):
+        return self.name
     
 class Order(models.Model): 
     """

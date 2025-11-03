@@ -25,13 +25,14 @@
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
             <span class="navbar-toggler-icon"></span>
         </button>
+        
         <div class="collapse navbar-collapse" id="navbarNav">
             {% comment %} <ul class="navbar-nav ms-auto is to make on the right side in bootstrap"> {% endcomment %}
             <ul class="navbar-nav ms-auto ">
                 <li class="nav-item"><a class="nav-link" href="">Home</a></li>
                 <li class="nav-item"><a class="nav-link" href="{% url 'all_ur' %}">Users</a></li>
                 <li class="nav-item"><a class="nav-link" href="">Addresses</a></li>
-                <li class="nav-item"><a class="nav-link" href="">Products</a></li>
+                <li class="nav-item"><a class="nav-link" href="{% url 'all_pro' %}">Products</a></li>
                 <li class="nav-item"><a class="nav-link" href="">Orders</a></li>
                 <li class="nav-item"><a class="nav-link" href="">Reviews</a></li>
                 <li class="nav-item"><a class="nav-link" href="">Contact</a></li>
@@ -46,15 +47,15 @@
 </nav> 
 
 <!-- 📦 Main content -->
-<div class="container">
+<main class="container mt-4">
     {% block content %}
     <!-- Each page content goes here -->
     {% endblock %}
-</div>
+</main>
 
 <!-- 🦶 Footer -->
 <footer>
-    &copy; {{ now|date:"Y" }} My Marketplace — Built with Django ❤️
+    &copy; {{ now|date:"Y" }} TradeBridge Marketplace — Powered By 3Thanks Tech ❤️
 </footer>
 
 <!-- Bootstrap JS -->
