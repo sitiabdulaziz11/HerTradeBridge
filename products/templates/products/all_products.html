@@ -3,16 +3,18 @@
 {% block content%}
 <section>
     <h3>Add Products Here:</h3>
-    <a href="{% url 'add_pro' %}" class="btn btn-danger mb-4">add product</a>
+    <a href="{% url 'add_pro' %}" class="btn btn-success mb-4">add product</a>
 </section>
 
 <section>
-    <h3>List of Products:</h3>
+    <h3 class="mb-4">List of Products:</h3>
     <ul>
         {% for product in products %}
-            <li>
-                {{ product.name }} - {{ product.price }} {{product.image }} - {{ product.status }} - Seller: {{ product.seller.first_name }}
-            </li>
+            <li> Product Name: <strong>{{ product.name }}</strong></li>
+            <li> Product Price: {{ product.price }}</li>
+                
+                <img src="{{ product.image.url }}" alt="{{ product.name }}" class="card-img-top rounded-top-4"> - {{ product.status }} - Seller: {{ product.seller.first_name }}
+            
             {% empty %}
         <p class="text-center text-muted">No products available yet. Be the first to add one!</p>
         {% endfor %}

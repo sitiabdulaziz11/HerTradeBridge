@@ -11,6 +11,10 @@ def all_products(request):
     """ To List all products.
     """
     products = Product.objects.all()
+    
+    for p in products:
+        print(p.name, p.image)
+        
     return render(request, 'products/all_products.html', {
         'products': products,
         })
