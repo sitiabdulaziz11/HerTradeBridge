@@ -44,7 +44,27 @@ def edit_product(request, pk):
             return redirect('all_products')
     else:
         form = ProductForm(instance=product)
-    return render(request, 'product/edit_product.html', {'form': form, 'product': product})
+    return render(request, 'products/edit_product.html', {'form': form, 'product': product})
+
+
+def product_detail(request, pk):
+    """To get all detail info of a product.
+    """
+    try:
+        product_detl = Product.objects.get(pk=pk)
+        return render(request, 'products/prod_detail.html', {
+            "product_detl": product_detl,
+        })
+    except Product.DoesNotExist:
+        print("product dosenot exist")
+
+# def product_list(request):
+#     products = Product.objects.all()
+#     return render(request, 'products/prod_detail.html', {
+#         'products': products
+#         })
+
+
 
 # Delete product
 def delete_product(request, pk):

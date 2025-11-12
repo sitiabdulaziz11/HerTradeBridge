@@ -75,3 +75,8 @@ install: python -m pip install Pillow
 then run: python3 manage.py makemigrations
  then:    python3 manage.py migrate
 
+
+to create super user in admin in django
+ python manage.py createsuperuser
+
+

@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+    {% if product_detl %}
+        <h4> {{ product_detl.id }} </h4>
+        <h4> {{ product_detl.name }} </h4>
+        <h4> {{ product_detl.price }} </h4>
+        <h4> {{ product_detl.description }} </h4>
+        <h4> {{ product_detl.status  }} </h4>
+        <h4> {{ product_detl.status  }} </h4>
+        <h4> {{ product_detl.status  }} </h4>
+    {% endif %}
+    
+{% endblock %} 
+
+{% comment %} {% for product in products %}
+<div class="card">
+    <div class="card-body">
+        <h5>{{ product.name }}</h5>
+        <p>{{ product.price }}</p>
+    </div>
+</div>
+{% endfor %} {% endcomment %}
