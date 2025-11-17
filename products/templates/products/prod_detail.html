@@ -3,14 +3,34 @@
 {% block content %}
 
     {% if product_detl %}
-        <h4> {{ product_detl.id }} </h4>
-        <h4> {{ product_detl.name }} </h4>
-        <h4> {{ product_detl.price }} </h4>
-        <h4> {{ product_detl.description }} </h4>
-        <h4> {{ product_detl.status  }} </h4>
-        <h4> {{ product_detl.status  }} </h4>
-        <h4> {{ product_detl.status  }} </h4>
-    {% endif %}
+    <h2 class="mb-4">Product Detail:</h2>
+        <p>Product ID: {{ product_detl.id }} </p>
+        <p>Product Name: {{ product_detl.name }} </p>
+        <p> Price: {{ product_detl.price }} ETB</p>
+        <p> Description: {{ product_detl.description }} </p>
+        <p> Product Status: {{ product_detl.status  }} </p>
+        <p>Amount: {{ product_detl.weight }} </p>
+        <p> Seller: {{ product_detl.seller }} </p>
+        <p>Address: {{ product_detl.address }} </p>
+       
+        <p> Image: </p>
+        <img src="{{ product_detl.image.url }}" 
+        class="card-img-top rounded-top-4 mb-4" alt="{{ product_detl.name }}"
+        style="max-width: 400px; border-radius: 10px;"
+        >
+        <p> Short Video:</p>
+        {% if product_detl.video %}
+            <video width="400" height="260" controls >
+                <source src="{{ product_detl.video.url }}" type="video/mp4" >
+            </video>
+        {% else %}
+            <p>No video available</p>
+        {% endif %}
+
+        <p class="mt-4" > Product Posted date: {{ product_detl.created_at }} </p>
+        <p class="mb-4" >Product Updated on : {{ product_detl.updated_at }} </p>
+
+{% endif %}
     
 {% endblock %} 
 

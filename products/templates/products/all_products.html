@@ -10,13 +10,18 @@
     <h3 class="mb-4">List of Products:</h3>
     <ul>
         {% for product in products %}
+        <div class="mb-4">
             <li> Product Name: <strong>{{ product.name }}</strong></li>
             <li> Product Price: {{ product.price }}</li>
-                
-                <img src="{{ product.image.url }}" alt="{{ product.name }}" class="card-img-top rounded-top-4"> - {{ product.status }} - Seller: {{ product.seller.first_name }}
-            
-            {% empty %}
+            <li>status: {{ product.status }}</li>
+            <li>Description: {{ product.description}}</li>
+            <li>Seller: {{ product.seller.first_name }}</li>
+            <img src="{{ product.image.url }}" alt="{{ product.name }}" class="card-img-top rounded-top-4">
+        </div>
+        {% empty %}
+
         <p class="text-center text-muted">No products available yet. Be the first to add one!</p>
+        
         {% endfor %}
     </ul>
 </section>
