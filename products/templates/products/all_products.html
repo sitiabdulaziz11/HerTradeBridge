@@ -7,8 +7,37 @@
 </section>
 
 <section>
-    <h3 class="mb-4">List of Products:</h3>
-    <ul>
+    <h3 class="mb-4">List of All Products:</h3>
+
+    <div class="row row-cols-1 row-cols-md-3 g-4 ">
+        {% for product in products %}
+        <div>
+            <div>
+
+                {% if product.image %}
+                    <img src="{{ product.image.url }}" class="card-img-top rounded-top-4" alt="{{ product.name }}">
+
+                {% else %}
+                    <img src="https://via.placeholder.com/400x250?text=No+Image" class="card-img-top rounded-top-4" alt="No image">
+                {% endif %}
+
+                <div>
+                    <h5 class="card-title fw-bold text-primary">{{ product.name }}</h5>
+                    <p class="fw-bold">💰 {{ product.price }} ETB</p>
+                    <p class="card-text text-muted">{{ product.description|truncatewords:15 }}</p>
+                </div>
+
+                <div>
+                    <a href="{% url 'pro_detl' product.id %}" class="btn btn-outline-primary w-100">View Details</a>
+                </div>
+            </div>
+        </div>
+        {% empty %}
+            <p class="text-center text-muted">No products available yet. Be the first to add one!</p>
+        {% endfor %}
+   </div>
+
+    {% comment %} <ul>
         {% for product in products %}
         <div class="mb-4">
             <li> Product Name: <strong>{{ product.name }}</strong></li>
@@ -23,6 +52,6 @@
         <p class="text-center text-muted">No products available yet. Be the first to add one!</p>
         
         {% endfor %}
-    </ul>
+    </ul> {% endcomment %}
 </section>
 {% endblock content%}
