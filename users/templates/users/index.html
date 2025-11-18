@@ -26,7 +26,10 @@
         <div class="card h-100 shadow-sm border-0 rounded-4">
 
           {% if product.image %}
-            <img src="{{ product.image.url }}" class="card-img-top rounded-top-4" alt="{{ product.name }}">
+            <img src="{{ product.image.url }}" class="card-img-top rounded-top-4
+            height:350px;"
+            style="height:350px;"
+            alt="{{ product.name }}">
 
           {% else %}
             <img src="https://via.placeholder.com/400x250?text=No+Image" class="card-img-top rounded-top-4" alt="No image">
