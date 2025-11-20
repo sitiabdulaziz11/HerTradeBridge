@@ -1,0 +1,13 @@
+form p {
+  align-items: center;
+  gap: 7rem;
+}
+
+form p input,
+form p select,
+form p textarea {
+    flex: 1;             /* input expands to fill space */
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+}

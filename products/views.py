@@ -65,7 +65,6 @@ def product_detail(request, pk):
 #         })
 
 
-
 # Delete product
 def delete_product(request, pk):
     product = get_object_or_404(Product, pk=pk)

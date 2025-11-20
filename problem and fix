@@ -7,3 +7,6 @@ ModuleNotFoundError: No module named 'product'
  
  2 i forgot [BASE_DIR / "templates" ], in setting.py file and i got 
  te,plateNotExist issues
+ 
+ 2 [20/Nov/2025 13:48:47] "GET /static/add_product.css HTTP/1.1" 404 1859 b/c of
+ forgoting app name in link and forgot restarting the server

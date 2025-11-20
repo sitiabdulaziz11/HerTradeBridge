@@ -1,0 +1,338 @@
+✅ 1. Meaning of each CSS class
+
+You have this:
+
+<p class="card-text text-muted mb-4">{{ product.description|truncatewords:15 }}</p>
+
+Bootstrap classes:
+
+card-text → Styles text inside a Bootstrap card.
+
+text-muted → Makes the text grey (less visible).
+
+mb-4 → Margin-bottom: 4 (from Bootstrap spacing system).
+
+Bootstrap spacing classes follow this format:
+m  = margin
+p  = padding
+t  = top
+b  = bottom
+s  = start (left)
+e  = end (right)
+x  = left & right
+y  = top & bottom
+1–5 = size
+
+
+So:
+
+mb-1 → small bottom margin
+
+mb-2 → medium
+
+mb-3 → bigger
+
+mb-4 → even bigger
+
+mb-5 → maximum (largest)
+
+❓ “No way to add more than mb-4?”
+
+Yes you can! Bootstrap supports up to mb-5 by default.
+
+If you want even more space (bigger than 5), you have options:
+
+Option A — Use inline CSS:
+<p style="margin-bottom: 60px;">...</p>
+
+Option B — Add your own class:
+.mb-6 {
+  margin-bottom: 6rem;
+}
+
+
+Then use it:
+
+<p class="card-text text-muted mb-6">...</p>
+
+✅ 2. What does truncatewords:15 mean?
+
+This part is Django template filter:
+
+{{ product.description|truncatewords:15 }}
+
+
+It means:
+
+➡️ Show only the first 15 words of the description.
+➡️ Add "..." at the end automatically.
+
+Example:
+If your description is:
+
+"This smartphone has a high-quality camera, strong battery life, and modern design features..."
+
+truncatewords:15 will display only the first 15 words.
+
+Summary
+✔ Bootstrap classes:
+Class	Meaning
+card-text	Styling for text inside a Bootstrap card
+text-muted	Makes text grey
+mb-4	Bottom margin level 4
+✔ Django filter:
+Filter	Meaning
+truncatewords:15	Cut text after 15 words
+✔ You can use larger margin than mb-4
+
+Use mb-5 or create your own class for larger.
+
+1. What is a Bootstrap card?
+
+A Bootstrap card is a ready-made UI component used to display content inside a box with:
+
+Border
+
+Shadow
+
+Padding
+
+Optional image
+
+Title
+
+Text
+
+Buttons
+
+Footer
+
+A card looks like this:
+
++-----------------------------------+
+|   [Image]                         |
+|   Product Name                    |
+|   Grey text (text-muted)          |
+|   Description                     |
+|   Price                           |
+|   Button                          |
++-----------------------------------+
+
+✔ Bootstrap card example:
+<div class="card" style="width: 18rem;">
+  <img src="image.jpg" class="card-img-top" alt="...">
+  <div class="card-body">
+    <h5 class="card-title">Card title</h5>
+    <p class="card-text">Some quick example text.</p>
+    <a href="#" class="btn btn-primary">Go somewhere</a>
+  </div>
+</div>
+
+
+The class card is what makes it a "Bootstrap card."
+
+✅ 2. What is text-muted?
+
+text-muted is not a card.
+It is only a text color class that makes the text lighter/grey.
+
+Example:
+<p class="text-muted">This text is grey.</p>
+
+
+So:
+
+card → a box layout component
+
+text-muted → grey text
+
+They are different.
+
+Quick Difference Table
+Class	Purpose
+card	Creates card layout box
+card-body	Inner content area of a card
+card-title	Title styling inside card
+card-text	Styles paragraph text in a card
+text-muted	Makes text grey/light
+mb-4	Adds margin-bottom
+
+1. What is a Bootstrap card?
+
+A Bootstrap card is a ready-made UI component used to display content inside a box with:
+
+Border
+
+Shadow
+
+Padding
+
+Optional image
+
+Title
+
+Text
+
+Buttons
+
+Footer
+
+A card looks like this:
+
++-----------------------------------+
+|   [Image]                         |
+|   Product Name                    |
+|   Grey text (text-muted)          |
+|   Description                     |
+|   Price                           |
+|   Button                          |
++-----------------------------------+
+
+✔ Bootstrap card example:
+<div class="card" style="width: 18rem;">
+  <img src="image.jpg" class="card-img-top" alt="...">
+  <div class="card-body">
+    <h5 class="card-title">Card title</h5>
+    <p class="card-text">Some quick example text.</p>
+    <a href="#" class="btn btn-primary">Go somewhere</a>
+  </div>
+</div>
+
+
+The class card is what makes it a "Bootstrap card."
+
+✅ 2. What is text-muted?
+
+text-muted is not a card.
+It is only a text color class that makes the text lighter/grey.
+
+Example:
+<p class="text-muted">This text is grey.</p>
+
+
+So:
+
+card → a box layout component
+
+text-muted → grey text
+
+They are different.
+
+Quick Difference Table
+Class	Purpose
+card	Creates card layout box
+card-body	Inner content area of a card
+card-title	Title styling inside card
+card-text	Styles paragraph text in a card
+text-muted	Makes text grey/light
+mb-4	Adds margin-bottom
+
+✅ Is a Bootstrap card like a container?
+✔ They are similar, but not the same.
+🟦 Bootstrap Container
+
+A container is used for page layout structure.
+It controls page width, alignment, and spacing.
+
+Think of container like:
+
+🟩 A big box that organizes the whole page.
+
+Example:
+
+<div class="container">
+    <!-- Page content here -->
+</div>
+
+🟧 Bootstrap Card
+
+A card is a small box used to display content, not layout.
+
+Think of card like:
+
+📦 A small item box inside the page
+(used for product, profile, article, blog, etc.)
+
+Example:
+
+<div class="card">
+    <div class="card-body">
+        <h5 class="card-title">Product Name</h5>
+        <p class="card-text">Short description...</p>
+    </div>
+</div>
+
+🔥 Simple Analogy
+
+Imagine a supermarket:
+
+🏬 The building → container
+
+Organizes everything inside.
+
+📦 The product boxes → cards
+
+Each product has its own small box.
+
+📝 Visual way to understand
+Container (big):
++--------------------------------------------------+
+|               container (full page)              |
+|                                                  |
+|   +------------------+   +------------------+    |
+|   |      card        |   |      card        |    |
+|   |   product item   |   |  another item    |    |
+|   +------------------+   +------------------+    |
+|                                                  |
++--------------------------------------------------+
+
+
+So:
+
+container = whole layout
+
+card = small content box inside the layout
+
+✔ Example using both
+<div class="container mt-4">
+
+    <div class="card" style="width: 18rem;">
+        <img src="phone.jpg" class="card-img-top" alt="Phone">
+        <div class="card-body">
+            <h5 class="card-title">Oppo A57</h5>
+            <p class="card-text text-muted">
+                {{ product.description|truncatewords:15 }}
+            </p>
+        </div>
+    </div>
+
+</div>
+
+Quick Difference Table
+Class	Purpose
+card	Creates card layout box
+card-body	Inner content area of a card
+card-title	Title styling inside card
+card-text	Styles paragraph text in a card
+text-muted	Makes text grey/light
+mb-4	Adds margin-bottom
+
+. What is a Bootstrap card?
+
+A Bootstrap card is a ready-made UI component used to display content inside a box with:
+
+Border
+
+Shadow
+
+Padding
+
+Optional image
+
+Title
+
+Text
+
+Buttons
+
+Footer

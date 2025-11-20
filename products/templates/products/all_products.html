@@ -1,5 +1,7 @@
 {% extends 'base.html' %}
 
+{% load static %}
+
 {% block content%}
 <section>
     <h3>Add Products Here:</h3>
@@ -15,7 +17,7 @@
             <div>
                 
                 {% if product.image %}
-                    <img src="{{ product.image.url }}" class="card-img-top rounded-top-4" alt="{{ product.name }}"
+                    <img src="{{ product.image.url }}" class="card-img-top rounded-top-4 mb-3" alt="{{ product.name }}"
                     style="max-width: 400px; height:370px; border-radius: 10px;"
                     >
 
@@ -24,7 +26,7 @@
                 {% endif %}
 
                 <div>
-                    <h5 class="card-title fw-bold text-primary">{{ product.name }}</h5>
+                    <h5 class="card-title fw-bold text-primary mb-2">{{ product.name }}</h5>
                     <p class="fw-bold">💰 {{ product.price }} ETB</p>
                     <p class="card-text text-muted mb-4">{{ product.description|truncatewords:15 }}</p>
                 </div>
