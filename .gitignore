@@ -1,3 +1,4 @@
 .env
 .pass
 __pycache__
+.venv

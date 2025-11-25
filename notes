@@ -42,19 +42,16 @@ in deployment:
 4 sudo mysql_secure_installation
 This helps you:
 
-
 And improve security.
 Follow the prompts:
-
 Set root password
-
 Remove anonymous users
-
 Disallow remote root login
-
 Remove test database
-
 Reload privileges
+That’s the production best practice.
+
+5  (with) sudo (or with out) mysql -u root -p
 
 Then, create a separate MySQL user for your app instead of using root:
 
@@ -62,9 +59,16 @@ CREATE USER 'appuser'@'localhost' IDENTIFIED BY 'StrongPassword!';
 GRANT ALL PRIVILEGES ON hertradebridge_db.* TO 'appuser'@'localhost';
 FLUSH PRIVILEGES;
 
-That’s the production best practice.
 
-5  mysql -u root -p
+Show all MySQL users
+SELECT User, Host FROM mysql.user;
+
+to use created user:
+mysql -u trade -p
+after exiting root
+
+CREATE DATABASE trade_db
+USE trade_db;
 
 6 then on terminal:
     sudo apt update
