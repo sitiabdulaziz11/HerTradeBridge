@@ -26,7 +26,8 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 
 load_dotenv()  # load variables from .env
 
-SECRET_KEY = os.getenv("CHAPA_SECRET_KEY")
+# SECRET_KEY = os.getenv("CHAPA_SECRET_KEY")
+SECRET_KEY = 'q*r4enlf5(g8(xu!cc!dt$dit+t295!81i-7@@a9#3s1d*bj3$'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True

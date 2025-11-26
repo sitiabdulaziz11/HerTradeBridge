@@ -15,15 +15,15 @@ class Product(models.Model):
     name = models.CharField(max_length=200)
     # price = models.DecimalField(max_digits=10, decimal_places=2)
     price = models.CharField(max_length=20,  blank=True, null=True)
-    description = models.TextField()
+    description = models.TextField(blank=True, null=True)
     
     weight = models.CharField(max_length=50, blank=True, null=True)
     status = models.CharField(max_length=10, choices=STATUS_CHOICES, default='available')
     
-    seller = models.ForeignKey(UserProfile, on_delete=models.CASCADE, related_name='products')
+    seller = models.ForeignKey(UserProfile, on_delete=models.CASCADE, related_name='products')  # , null=True, blank=True
     address = models.ForeignKey(Address, on_delete=models.SET_NULL, null=True, blank=True)
     
-    image = models.ImageField(upload_to='products/images') 
+    image = models.ImageField(upload_to='products/images', blank=True, null=True) 
     video = models.FileField(upload_to='products/videos/', blank=True, null=True)
     
     created_at = models.DateTimeField(auto_now_add=True)

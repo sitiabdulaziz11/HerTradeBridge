@@ -17,7 +17,7 @@ class UserProfileForm(forms.ModelForm):
 class AddressForm(forms.ModelForm):
     class Meta:
         model = Address
-        fields = ['user', 'country', 'city', 'village', 'location_type', 'village_description', ] #'created_at', 'updated_at'
+        fields = ['user', 'country', 'city', 'village', 'Address_type', 'village_description', ] #'created_at', 'updated_at'
                  # ]
 
 

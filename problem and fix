@@ -30,3 +30,15 @@ Install your requirements:
 bash
 Copy code
 pip install -r requirements.txt
+
+4 django.core.exceptions.ImproperlyConfigured: The SECRET_KEY setting must not be empty.
+
+so/n
+If you don’t have one, generate a new one:
+
+Run this:
+
+python3 - <<EOF
+from django.core.management.utils import get_random_secret_key
+print(get_random_secret_key())
+EOF

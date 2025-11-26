@@ -15,7 +15,7 @@ class UserProfile(models.Model):
     phone_number = models.CharField(max_length=30, unique=True)
     email = models.EmailField(unique=True, null=True, blank=True)
     password = models.CharField(max_length=128, null=True, blank=True)
-    role = models.CharField(max_length=10, choices=ROLE_CHOICES) 
+    role = models.CharField(max_length=10, choices=ROLE_CHOICES, blank=True, null=True) 
     created_at = models.DateTimeField(auto_now_add=True) 
     updated_at = models.DateTimeField(auto_now=True)
 
@@ -31,12 +31,12 @@ class Address(models.Model):
     city = models.CharField(max_length=100)
     village = models.CharField(max_length=100) 
     village_description = models.TextField(blank=True, null=True) 
-    location_type = models.CharField(  max_length=10, choices=[('buyer', 'Buyer'), ('seller', 'Seller')])
+    Address_type = models.CharField(max_length=10, choices=[('buyer', 'Buyer'), ('seller', 'Seller')], blank=True, null=True)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
     
     def __str__(self):
-        return f"{self.country}, {self.city}, {self.village}, {self.location_type}"
+        return f"{self.country}, {self.city}, {self.village}, {self.Address_type}"
         
 
 class Review(models.Model): 
