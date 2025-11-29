@@ -9,12 +9,15 @@
   {% endblock %}
 
 {% block content %}
-<div class="container mt-4">
+<div class="container mt-2">
   <h2>{{ users|default:'Add New Products' }}</h2>
   
   <form method="POST" enctype="multipart/form-data">
     {% csrf_token %}
+
+    <div class="form_control student-form">
     {{ form.as_p }}
+    </div>
 
     <button type="submit" class="btn btn-primary">Save</button>
     <a href="{% url 'all_pro' %}" class="btn btn-secondary">Cancel</a>

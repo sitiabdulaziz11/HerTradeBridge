@@ -17,7 +17,7 @@ class Product(models.Model):
     price = models.CharField(max_length=20,  blank=True, null=True)
     description = models.TextField(blank=True, null=True)
     
-    weight = models.CharField(max_length=50, blank=True, null=True)
+    amount = models.CharField(max_length=50, blank=True, null=True)
     status = models.CharField(max_length=10, choices=STATUS_CHOICES, default='available')
     
     seller = models.ForeignKey(UserProfile, on_delete=models.CASCADE, related_name='products')  # , null=True, blank=True

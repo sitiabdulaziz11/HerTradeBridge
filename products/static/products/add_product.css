@@ -1,13 +1,49 @@
-form p {
-  align-items: center;
-  gap: 7rem;
+
+form {
+  max-width: 60rem;   /* limit width */
+  margin: 0 auto;     /* center horizontally */
+  padding: 2rem;
+  /* background: rgba(0,0,0,0.2); */
+  border-radius: 12px;
 }
 
-form p input,
-form p select,
-form p textarea {
-    flex: 1;             /* input expands to fill space */
-    padding: 8px;
-    border: 1px solid #ccc;
+.form_control.student-form label {
+  /* font-weight: bold; */
+  font-size:1.1rem;  /*to give size on lables out side of input area*/
+  /* display: block; */
+  margin: 0;
+  font-family: 'Times New Roman', Times, serif;
+  /* justify-content: center; */
+  width: 4rem;  /*to make all lables and input equal*/
+}
+
+.form_control.student-form p {
+  display: flex;  /* to make a gap b/n lable and inputs*/
+  align-items: center;     /* vertically align */
+   /*justify-content: space-between;  space between label & input */
+  margin-bottom: 1.5rem;
+  gap: 2rem;
+}
+
+.form_control input,
+.form_control select,
+.form_control textarea {
+    /* display: block; */
+    padding: 0.2rem;
     border-radius: 6px;
+    /* outline: none; */
+    /* border-width: medium; */
+    /* text-align: left; */
+    /*font-size: 1.5rem;   to give size on texst inside input*/
+    /* max-width: 17rem; */
+}
+
+.form_control input:focus,
+.form_control select:focus,
+.form_control textarea:focus {
+    border-color: rgba(83, 221, 228, 0.6) ;
+    box-shadow: 1px 2px 5px #39bd6a;
+    background-color: #d7e0ef;
+    border-width: 5px;
+    border-radius: 10px;
 }

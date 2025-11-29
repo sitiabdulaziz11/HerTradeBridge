@@ -1,0 +1,16 @@
+
+.add_user p {
+  display: flex;  /* to make a gap b/n lable and inputs*/
+  align-items: center;     /* vertically align */
+   /*justify-content: space-between;  space between label & input */
+  margin-bottom: 1.2rem;
+  gap: 2rem;
+}
+
+.add_user label {
+    width: 6rem;
+}
+
+form {
+    padding: 2rem;
+}
