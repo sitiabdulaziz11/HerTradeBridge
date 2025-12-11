@@ -3,7 +3,7 @@ For more information on production servers see: https://docs.djangoproject.com/e
 
 To start wsl on vscode:
 
-1 wsl --install -d Ubuntu / wsl --install only
+1 wsl --install -d Ubuntu / wsl --install only on windows powershell
 2 In VS Code → Press Ctrl + Shift + P → Type:
 WSL: Connect to WSL
 
@@ -13,6 +13,13 @@ To create venv and use it:
 3 python3 -m pip install django
 4 Verify installation:
 python3 -m django --version
+
+make installed app inside requirements.txt
+pip freeze > requirements.txt
+
+to install it
+pip install -r requirements.txt
+
 
  To create django project:
  1 django-admin startproject <name of project>
@@ -83,4 +90,33 @@ then run: python3 manage.py makemigrations
 to create super user in admin in django
  python manage.py createsuperuser
 
+
+Optional: Use Pipenv or Poetry
+
+A much easier and modern workflow:
+
+With pipenv:
+pip install pipenv
+pipenv install --dev
+pipenv shell
+
+With poetry:
+pip install poetry
+poetry install
+
+
+These tools handle environments more cleanly.
+
+🟦 Extra: If your WSL keeps breaking after PC crash
+
+This happens a lot. To reduce problems:
+
+✔ Don’t store projects inside:
+/mnt/c/Users/...
+
+
+This causes corruption when Windows crashes.
+
+✔ Instead store projects in:
+~/projects/
 

@@ -1,0 +1,54 @@
+You already have your model, serializer, viewset, and URLs set up. Now, to run and see your Django REST Framework (DRF) API, you need to follow these steps carefully:
+
+1️⃣ Make sure your app is in INSTALLED_APPS
+
+In your settings.py:
+
+INSTALLED_APPS = [
+    ...
+    'rest_framework',
+    'your_app_name',  # replace with the actual app name
+]
+
+2️⃣ Include your router URLs in the main urls.py
+
+If your current urls.py with the router is inside the app folder, you need to include it in the project-level urls.py:
+
+project/urls.py
+
+from django.contrib import admin
+from django.urls import path, include
+
+urlpatterns = [
+    path('admin/', admin.site.urls),
+    path('api/', include('your_app_name.urls')),  # Include your app's URLs
+]
+
+
+Now, your API endpoint will start with /api/.
+
+3️⃣ Make migrations and migrate
+
+Run these commands in your terminal to create the database table for your model:
+
+python manage.py makemigrations
+python manage.py migrate
+
+4️⃣ Create a superuser (optional, for admin access)
+python manage.py createsuperuser
+
+5️⃣ Run the development server
+python manage.py runserver
+
+6️⃣ Test your API
+
+Open your browser and go to:
+
+http://127.0.0.1:8000/api/students/
+
+
+You should see a DRF web interface for your Student model.
+
+You can GET, POST, PUT, PATCH, and DELETE students from here.
+
+✅ Optional Tip: If you want your URLs to include a trailing slash, make sure DEFAULT_SLASHES = True in settings, but by default DRF handles it.
